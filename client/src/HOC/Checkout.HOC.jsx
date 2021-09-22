@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
+// Layout
 import CheckoutLayout from "../Layout/Checkout.Layout";
 
 const CheckoutLayoutHOC = ({ component: Component, ...rest }) => {
@@ -17,4 +18,5 @@ const CheckoutLayoutHOC = ({ component: Component, ...rest }) => {
     </>
   );
 };
+
 export default CheckoutLayoutHOC;

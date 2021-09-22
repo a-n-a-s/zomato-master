@@ -8,12 +8,13 @@ import {
 } from "../../Redux/Reducer/Cart/cart.action";
 const FoodItem = (props) => {
   const dispatch = useDispatch();
-  const deleteFoodFromCart = () => dispatch(DeleteCart(props?._id));
+  const deleteFoodFromCart = () => dispatch(DeleteCart(props._id));
 
-  const increment = () => {
-    if (props.quantity) dispatch(IncQty(props?._id));
+  const increment = () => dispatch(IncQty(props._id));
+  const decrement = () => {
+    if (props.quantity === 1) return;
+    dispatch(DecQty(props._id));
   };
-  const decrement = () => dispatch(DecQty(props?._id));
   return (
     <>
       <div className="flex items-center justify-between">
@@ -28,7 +29,7 @@ const FoodItem = (props) => {
               >
                 -
               </button>
-              <small>39</small>
+              <small>{props?.quantity}</small>
               <button
                 onClick={increment}
                 className="bg-zomato_red text-white rounded p-1"
@@ -37,7 +38,7 @@ const FoodItem = (props) => {
               </button>
             </div>
           </div>
-          <BsTrashFill className="text-zomato_red text-lg md:text-xl" />
+          <BsTrashFill className="text-zomato_red text-lg md:text-xl" onClick={deleteFoodFromCart} />
         </div>
       </div>
       <hr className="my-1" />

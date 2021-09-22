@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import gravatar from "gravatar";
 
 const Navbar = () => {
-  const reduxState = useSelector((global) => global.user.user);
+  const reduxState = useSelector((global) => global?.UserReducer?.user);
 
   return (
     <>

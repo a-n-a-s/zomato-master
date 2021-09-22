@@ -16,6 +16,7 @@ import Image from "./API/Images/index";
 import Order from "./API/Orders/index";
 import Review from "./API/Reviews/index";
 import User from "./API/User/index";
+import Pay from "./API/Payment/index"
 import Menu from "./API/Menu/index";
 
 //------------------CONFIGS--------------
@@ -43,6 +44,7 @@ zomato.use("/orders", Order);
 zomato.use("/reviews", Review);
 zomato.use("/user", User);
 zomato.use("/menu", Menu);
+zomato.use("/payments", Pay);
 
 //ROUTES
 zomato.get("/", (req, res) => {

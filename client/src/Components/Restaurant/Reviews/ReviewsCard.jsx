@@ -13,7 +13,7 @@ const ReviewsCard = (props) => {
     dispatch(getUser(props?.user)).then((data) =>
       setUser(data.payload?.user.user.user)
     );
-  }, []);
+  });
 
   return (
     <>

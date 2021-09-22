@@ -36,43 +36,36 @@ function App() {
 
   return (
     <>
-      <Switch>
-        <Route path="/" exact>
-          <Redirect to="/delivery" />
-        </Route>
+      <Route path="/" exact>
+        <Redirect to="/delivery" />
+      </Route>
+      <Route path="/restaurant/:id" exact component={RedirectRestaurant} />
 
-        <Route path="/restaurant/:id" exact component={RedirectRestaurant} />
-        <HomeLayoutHOC path="/:type" exact component={Home} />
-        <div className="mb-60">
-          <RestaurantLayoutHOC
-            path="/google/:token"
-            exact
-            component={GoogleAuth}
-          />
-          <RestaurantLayoutHOC
-            path="/restaurant/:id/overview"
-            exact
-            component={Overview}
-          />
-          <RestaurantLayoutHOC
-            path="/restaurant/:id/order-online"
-            exact
-            component={OrderOnline}
-          />
-          <RestaurantLayoutHOC path="/restaurant/:id/menu" exact component={Menu} />
-          <RestaurantLayoutHOC
-            path="/restaurant/:id/reviews"
-            exact
-            component={Reviews}
-          />
-          <RestaurantLayoutHOC
-            path="/restaurant/:id/photos"
-            exact
-            component={Photos}
-          />
-        </div>
-        <CheckoutLayoutHOC path="/checkout/pay" exact component={Checkout} />
-      </Switch>
+      <HomeLayoutHOC path="/:type" exact component={Home} />
+
+      <HomeLayoutHOC path="/google/:token" exact component={GoogleAuth} />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id/overview"
+        exact
+        component={Overview}
+      />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id/order-online"
+        exact
+        component={OrderOnline}
+      />
+      <RestaurantLayoutHOC path="/restaurant/:id/menu" exact component={Menu} />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id/reviews"
+        exact
+        component={Reviews}
+      />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id/photos"
+        exact
+        component={Photos}
+      />
+      <CheckoutLayoutHOC path="/checkout/orders" exact component={Checkout} />
     </>
   );
 }

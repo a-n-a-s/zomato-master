@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ImgsViewer from "react-simple-image-viewer";
-const MenuCollection = (props) => {
+const   MenuCollection = (props) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [currentImg, setCurrentImg] = useState(0);
   const closeViewer = () => setIsOpenMenu(false);
@@ -10,7 +10,7 @@ const MenuCollection = (props) => {
     <>
       {isOpenMenu && (
         <ImgsViewer
-          src={props?.images[0]}
+          src={props?.image[0]}
           currentIndex={currentImg}
           disableScroll={false}
           onClose={closeViewer}

@@ -15,14 +15,14 @@ import FoodItem from "./FoodItem";
 import { getCart } from "../../Redux/Reducer/Cart/cart.action";
 
 const CartSM = ({ toggle }) => {
-  const reduxState = useSelector((global) => global.cart.cart);
+  const reduxState = useSelector((global) => global.CartReducer.cart);
   const history = useHistory();
 
   const continueToCheckout = () => history.push("/checkout/orders");
 
   return (
     <>
-      <div className="  flex items-center justify-between">
+       <div className=" md:hidden flex items-center justify-between">
         <div className="flex flex-col items-start">
           <small className="flex items-center gap-1" onClick={toggle}>
             {reduxState.length} Item <IoMdArrowDropup />
@@ -44,7 +44,7 @@ const CartSM = ({ toggle }) => {
 };
 
 const CartLg = ({ toggle }) => {
-  const reduxState = useSelector((global) => global.cart.cart);
+  const reduxState = useSelector((global) => global.CartReducer.cart);
   const history = useHistory();
 
   const continueToCheckout = () => history.push("/checkout/orders");
@@ -68,7 +68,7 @@ const CartLg = ({ toggle }) => {
           </h4>
           <button
             onClick={continueToCheckout}
-            className="flex items-center text-lg h-10 font-light gap-1 bg-zomato-400 px-3 py-1 text-white rounded-lg"
+            className="flex items-center text-lg h-10 font-light gap-1 bg-zomato_red px-3 py-1 text-white rounded-lg"
           >
             Continue <IoMdArrowDropright />
           </button>
@@ -83,7 +83,7 @@ const CartContainer = () => {
   const [cartData, setCartData] = useState([]);
 
   const dispatch = useDispatch();
-  const reduxState = useSelector((global) => global?.cart?.cart);
+  const reduxState = useSelector((global) => global?.CartReducer?.cart);
 
   const toggleCart = () => setIsOpen((prev) => !prev);
   const closeCart = () => setIsOpen(false);
