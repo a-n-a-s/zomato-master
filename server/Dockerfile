@@ -19,7 +19,6 @@ ENV RAZORPAY_SECRET="3H7zxNwgbs1EAB4Fgg2kcxuD"
 ENV NODE_ENV=production
 ENV PORT=4000
 
-RUN npm run build
 
 
 CMD ["npm", "run", "start"]
