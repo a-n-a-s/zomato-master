@@ -1,0 +1,19 @@
+sudo: required
+
+services:
+  - docker
+script:
+  - echo "Hello Students!"
+
+
+after_success : 
+
+  - docker build -t akanaspro/zomato-master-client ./client
+  - docker build -t akanaspro/zomato-master-server ./server
+  - docker build -t akanaspro/zomato-master-nginx ./nginx
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push akanaspro/zomato-master-client
+  - docker push akanaspro/zomato-master-server
+  - docker push akanaspro/zomato-master-nginx
